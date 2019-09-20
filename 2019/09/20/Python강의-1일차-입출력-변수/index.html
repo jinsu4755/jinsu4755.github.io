@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+
+<title>[Python강의]1일차/입출력,변수 | 개발로 쓰다</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">P_jinsu의 개발로 쓰다</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">P_jinsu의 개발로 쓰다</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">[Python강의]1일차/입출력,변수</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">P_Jinsu</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">September 20, 2019&nbsp;&nbsp;13:08:30</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Python강의-SM사업/">Python강의/SM사업</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="1일차"><a href="#1일차" class="headerlink" title="1일차"></a>1일차</h1><p>[TOC]</p>
+<h2 id="Python-개념"><a href="#Python-개념" class="headerlink" title="Python 개념"></a>Python 개념</h2><h4 id="파이썬이란"><a href="#파이썬이란" class="headerlink" title="파이썬이란?"></a>파이썬이란?</h4><p>네덜란드 출신 귀도 반로섬(Guido van Rossum)이 1989년에 개발한 프로그래밍 언어</p>
+<h4 id="파이썬의-특징"><a href="#파이썬의-특징" class="headerlink" title="파이썬의 특징"></a>파이썬의 특징</h4><p><strong>1) 파이썬은 인터프린터 언어이다</strong></p>
+<p>컴파일러를 사용하는 C, Java와 다르게 파이썬은 interpreter에 의해 실행되는 스크립트</p>
+<p>컴파일러 언어에 비해 실행속도는 느리지만 코드가 완전히 작성되지 않아도 작성된 부분까지 테스트도 가능하고 대화형 기능을 통해 곧바로 수정이 가능하다</p>
+<p><strong>2) 문법이 간결하고 쉽다</strong></p>
+<p>C, Java에서는 block을 중괄호로 구별하지만 파이썬은 들여쓰기로 구분한다.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//C 언어에서 역순 출력</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, n;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">	<span class="keyword">for</span> (i = n; i &gt; <span class="number">0</span> ; i--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,i);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 파이썬에서 역순 출력</span></span><br><span class="line">a = int(input())</span><br><span class="line">print(a)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, a):</span><br><span class="line">    print(a-i)</span><br></pre></td></tr></table></figure>
+
+<p><strong>3) 생산성이 높고 빠른 개발속도를 가지고 있다.</strong></p>
+<p>다른 사람이 제작한 다양한 라이브러리를 사용하여 빠르게 프로그래밍 가능</p>
+<h2 id="Python-입출력-함수"><a href="#Python-입출력-함수" class="headerlink" title="Python 입출력 함수"></a>Python 입출력 함수</h2><h4 id="print"><a href="#print" class="headerlink" title="print()"></a>print()</h4><p>파이썬에서는 화면에 데이터를 출력할때 print()를 사용한다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="number">10</span>)</span><br><span class="line">print(<span class="string">"str"</span>)</span><br><span class="line">print([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>출력 값</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>10<br>str<br>[1,2,3]</td>
+</tr>
+</tbody></table>
+<p>여러 데이터를 한번에 출력할때는 format형식과 +등 다양하게 가능</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">10</span></span><br><span class="line">j = <span class="number">20</span></span><br><span class="line">testStr = <span class="string">"hello"</span></span><br><span class="line">testStr2 = <span class="string">"world"</span></span><br><span class="line">print(<span class="string">"%d %d"</span>%(i,j)) <span class="comment"># i와 j를 출력 포멧에 따라 출력</span></span><br><span class="line">print(testStr + testStr2) <span class="comment"># 문자열과 문자열 합</span></span><br><span class="line">print(testStr,testStr2) <span class="comment"># 문자열과 문자열 나열</span></span><br><span class="line">print(<span class="string">"&#123;0&#125; and &#123;1&#125;"</span>.format(i,j)) <span class="comment"># 포멧 옵션 사용</span></span><br><span class="line">print(<span class="string">"&#123;1&#125; and &#123;0&#125;"</span>.format(i, j))</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>출력 값</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>10 20<br>helloworld<br>hello world<br>10 and 20<br>20 and 10</td>
+</tr>
+</tbody></table>
+<p>뒤에 format 옵션 이외에 end를 쓰는 경우</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>):</span><br><span class="line">    print(i)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>):</span><br><span class="line">    print(i, end=<span class="string">","</span>)</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>출력 값</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1<br>2<br>3<br>1,2,3,</td>
+</tr>
+</tbody></table>
+<hr>
+<h4 id="input"><a href="#input" class="headerlink" title="input()"></a>input()</h4><p>사용자의 입력을 받을때는 input()을 사용한다</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var = input()</span><br><span class="line">print(var)</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>입력</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>md문법강의자료</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>출력</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>md문법강의자료</td>
+</tr>
+</tbody></table>
+<p>입력시 사용자에게 입력 정보를 알리는 것도 C보다 간단하게 다음과 같이 할 수 있다.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var = input(<span class="string">"할 말을 써라닝겐&gt;&gt;"</span>)</span><br><span class="line">print(var)</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>입력</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>없다로봇</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>출력</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>없다로봇</td>
+</tr>
+</tbody></table>
+
+        </div>
+
+        <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://jinsu4755.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                            
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>P_Jinsu</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://jinsu4755.github.io/2019/09/20/Python강의-1일차-입출력-변수/">http://jinsu4755.github.io/2019/09/20/Python강의-1일차-입출력-변수/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/SM사업-Python-강의/"># SM사업/Python/강의</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2019/09/20/Python강의-OT/">[Python강의]OT</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
