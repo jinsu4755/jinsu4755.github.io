@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+
+<title>[웹프로그래밍]URL | 개발로 쓰다</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">P_jinsu의 개발로 쓰다</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">P_jinsu의 개발로 쓰다</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">[웹프로그래밍]URL</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">P_Jinsu</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">September 24, 2019&nbsp;&nbsp;1:40:51</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/웹-프로그래밍/">웹_프로그래밍</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h1><h2 id="sw-skhu-ac-kr-과-skhu-ac-kr-sw의-차이"><a href="#sw-skhu-ac-kr-과-skhu-ac-kr-sw의-차이" class="headerlink" title="sw.skhu.ac.kr 과 skhu.ac.kr/sw의 차이"></a>sw.skhu.ac.kr 과 skhu.ac.kr/sw의 차이</h2><h4 id="sw-skhu-ac-kr"><a href="#sw-skhu-ac-kr" class="headerlink" title="sw.skhu.ac.kr"></a>sw.skhu.ac.kr</h4><p>서버 주소 자체이고 웹 서버 컴퓨터 서버 주소이다.</p>
+<p><strong>장점</strong> : 주소가 간결함</p>
+<p><strong>단점</strong> : 다수의 경우에는 주소가 많아진다.</p>
+<h4 id="skhu-ac-kr-sw"><a href="#skhu-ac-kr-sw" class="headerlink" title="skhu.ac.kr/sw"></a>skhu.ac.kr/sw</h4><p>sw가 주소에 포함된 어플리케이션</p>
+<p><strong>장점</strong> : 관리가 간단하다.</p>
+<p><strong>단점</strong> : 주소가 복잡해진다.</p>
+<h2 id="URL의-예"><a href="#URL의-예" class="headerlink" title="URL의 예"></a>URL의 예</h2><p><a href="https://comic.naver.com:8080/webtoon/detail.nhn?titleId=20853&amp;no=1193" target="_blank" rel="noopener">https://comic.naver.com:8080/webtoon/detail.nhn?titleId=20853&amp;no=1193</a></p>
+<h4 id="http"><a href="#http" class="headerlink" title="http"></a>http</h4><p>통신 프로토콜</p>
+<h4 id="comic-naver-com"><a href="#comic-naver-com" class="headerlink" title="comic.naver.com"></a>comic.naver.com</h4><p>웹서버 컴퓨터의 주소</p>
+<h4 id="8080"><a href="#8080" class="headerlink" title="8080"></a>8080</h4><p>웹서버가 인터넷 TCP/IP통신에 사용할 포트(port) 번호.</p>
+<p>디폴트 번호는 80이고 디폴트의 경우 생략한다.</p>
+<h4 id="webtoon"><a href="#webtoon" class="headerlink" title="webtoon"></a>webtoon</h4><p>context 이름, context path</p>
+<p>context 이름 : 웹서버에서 실행되는 웹 어플리케이션의 이름</p>
+<p>eclipse에서 개발시 project이름이 톰캣 웹서버에서 실행될때 context 이름이 된다.</p>
+<h4 id="detail-nhn"><a href="#detail-nhn" class="headerlink" title="detail.nhn"></a>detail.nhn</h4><p>문서의 이름</p>
+<h4 id="titleId-20853-amp-no-1193"><a href="#titleId-20853-amp-no-1193" class="headerlink" title="?titleId=20853&amp;no=1193"></a>?titleId=20853&amp;no=1193</h4><p>query String, 문서의 경로명 뒤에 추가 파라미터 데이터.</p>
+<p>웹서버에서 동적 문서가 생성되고 수정 될 때 사용.</p>
+<hr>
+
+        </div>
+
+        <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://jinsu4755.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                            
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>P_Jinsu</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://jinsu4755.github.io/2019/09/24/웹프로그래밍-URL/">http://jinsu4755.github.io/2019/09/24/웹프로그래밍-URL/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/웹프로그래밍/"># 웹프로그래밍</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019/09/24/웹프로그래밍-HTTP프로토콜/">[웹프로그래밍]HTTP프로토콜</a>
+            
+            
+            <a class="next" rel="next" href="/2019/09/23/웹프로그래밍-웹프로그래밍의-개념/">[웹프로그래밍]웹프로그래밍의 개념</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
