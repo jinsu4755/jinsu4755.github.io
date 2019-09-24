@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+
+<title>[웹프로그래밍]html태그와CSS서식정리-1 | 개발로 쓰다</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">P_jinsu의 개발로 쓰다</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">P_jinsu의 개발로 쓰다</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">[웹프로그래밍]html태그와CSS서식정리-1</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">P_Jinsu</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">September 25, 2019&nbsp;&nbsp;3:07:24</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/웹-프로그래밍/">웹_프로그래밍</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="HTML문서-구조"><a href="#HTML문서-구조" class="headerlink" title="HTML문서 구조"></a>HTML문서 구조</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span> </span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Type"</span> <span class="attr">content</span>=<span class="string">"text/html; charset=utf-8"</span>&gt;</span> 		<span class="tag">&lt;<span class="name">title</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">title</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span> </span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>안녕하세요<span class="tag">&lt;/<span class="name">h1</span>&gt;</span> </span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>이것은 첫째 단락입니다.<span class="tag">&lt;/<span class="name">p</span>&gt;</span> </span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>이것은 둘째 단락입니다.<span class="tag">&lt;/<span class="name">p</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="lt-DOCTYPE-html-gt"><a href="#lt-DOCTYPE-html-gt" class="headerlink" title="&lt;!DOCTYPE html&gt;"></a><code>&lt;!DOCTYPE html&gt;</code></h3><p>HTML5문서를 나타냄</p>
+<p>html문서의 내용은 <code>&lt;html&gt;&lt;/html&gt;</code>안에 작성되어야 한다.</p>
+<p>눈에 보여질 부분은 <code>&lt;body&gt;&lt;/body&gt;</code>태그 안에 넣어주고</p>
+<p>눈에 보이진 않으나 설정값과 관련한 부분은 <code>&lt;head&gt;&lt;/head&gt;</code>안에 넣어준다.</p>
+<h3 id="meta-tag"><a href="#meta-tag" class="headerlink" title="meta tag"></a>meta tag</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Type"</span> <span class="attr">content</span>=<span class="string">"text/html; charset=utf-8"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>해당 태그는 문서 내용이 html text 파일이고 문자 인코딩이 utf-8을 사용함을 선언한다.</p>
+<p>meta 태그는 <code>&lt;head&gt;</code>태그 안에 들어간다.</p>
+<p>meta 태그에서 선언한 문자 인코딩은, 소스파일 실제 인코딩과 일치하지 않으면 웹 브라우저에서 한글이 제대로 출력되지 않음.</p>
+<h3 id="title-tag"><a href="#title-tag" class="headerlink" title="title tag"></a>title tag</h3><p>웹 브라우저의 제목을 설정하는 태그</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>hello world<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="h1-tag"><a href="#h1-tag" class="headerlink" title="h1 tag"></a>h1 tag</h3><p>큰 제목에 해당하는 문자열 출력 태그</p>
+<p>h1~h5까지 존제</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>hi hello<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="p-tag"><a href="#p-tag" class="headerlink" title="p tag"></a>p tag</h3><p>한 단락(paragraph)에 해당하는 문자열을 p태그로 묶음</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>this is paragraph<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="block-tag-inline-tag"><a href="#block-tag-inline-tag" class="headerlink" title="block tag / inline tag"></a>block tag / inline tag</h3><h4 id="block-tag"><a href="#block-tag" class="headerlink" title="block tag"></a>block tag</h4><p>h1 태그와 p태그 처럼 앞뒤로 줄바꿈이 저절로 일어나고 한줄을 전부 차지하는 태그를 말한다.</p>
+<h4 id="inline-tag"><a href="#inline-tag" class="headerlink" title="inline tag"></a>inline tag</h4><p>한줄을 다 차지하지 않고, 앞 뒤로 줄바꿈이 저절로 일어나지 않는 태그</p>
+<h3 id="공백과-줄바꿈"><a href="#공백과-줄바꿈" class="headerlink" title="공백과 줄바꿈"></a>공백과 줄바꿈</h3><p>html문서가 웹브라우저에 표시될 때, 공백 문자와 줄바꿈 문자는 무시된다.</p>
+<p>연속되는 공백 문자는 하나로 출력하고 줄바꿈 문자도 공백 문자 하나로 출력된다.</p>
+<h4 id="공백-문자와-줄바꿈-태그"><a href="#공백-문자와-줄바꿈-태그" class="headerlink" title="공백 문자와 줄바꿈 태그"></a>공백 문자와 줄바꿈 태그</h4><h4 id="amp-nbsp"><a href="#amp-nbsp" class="headerlink" title="&amp;nbsp;"></a><code>&amp;nbsp;</code></h4><p>문서에서 원하는 곳에 공백 문자 추가</p>
+<h4 id="lt-br-gt"><a href="#lt-br-gt" class="headerlink" title="&lt;br&gt;"></a><code>&lt;br&gt;</code></h4><p>문서에서 원하는 곳에 줄바꿈 문자 추가</p>
+<h3 id="자주-쓰이는-html-특수-문자"><a href="#자주-쓰이는-html-특수-문자" class="headerlink" title="자주 쓰이는 html 특수 문자"></a>자주 쓰이는 html 특수 문자</h3><table>
+<thead>
+<tr>
+<th>html 특수 문자</th>
+<th>문자</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&amp;nbsp;</code></td>
+<td>공백</td>
+</tr>
+<tr>
+<td><code>&amp;gt;</code></td>
+<td>&gt;</td>
+</tr>
+<tr>
+<td><code>&amp;lt;</code></td>
+<td>&lt;</td>
+</tr>
+<tr>
+<td><code>&amp;amp;</code></td>
+<td>&amp;</td>
+</tr>
+</tbody></table>
+
+        </div>
+
+        <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://jinsu4755.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                            
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>P_Jinsu</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://jinsu4755.github.io/2019/09/25/웹프로그래밍-html태그와CSS서식정리-1/">http://jinsu4755.github.io/2019/09/25/웹프로그래밍-html태그와CSS서식정리-1/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/웹프로그래밍/"># 웹프로그래밍</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019/09/25/웹프로그래밍-html태그와CSS서식정리-2/">[웹프로그래밍]html태그와CSS서식정리-2</a>
+            
+            
+            <a class="next" rel="next" href="/2019/09/24/Baekjoon-1316그룹단어체커-JAVA/">[Baekjoon]1316:그룹 단어 체커[JAVA]</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
