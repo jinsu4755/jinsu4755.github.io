@@ -7,7 +7,7 @@
 
 
 
-<title>[git강의]1일차:용어/시작하기 | 개발로 쓰다</title>
+<title>[Baekjoon]15596:정수N개 합[JAVA] | 개발로 쓰다</title>
 
 
 
@@ -103,11 +103,73 @@
             <div class="container">
     
     
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
 
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">[git강의]1일차:용어/시작하기</h1>
+            <h1 class="post-title">[Baekjoon]15596:정수N개 합[JAVA]</h1>
             
                 <div class="post-meta">
                     
@@ -116,14 +178,14 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">September 30, 2019&nbsp;&nbsp;4:08:57</a>
+                        Date: <a href="#">October 1, 2019&nbsp;&nbsp;4:12:21</a>
                         </span>
                     
                     
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/git을-알아보자/">git을_알아보자</a>
+                                <a href="/categories/Baekjoon알고리즘/">Baekjoon알고리즘</a>
                             
                         </span>
                     
@@ -132,7 +194,25 @@
         </header>
 
         <div class="post-content">
-            <p>수요일 강의 이후 업데이트 예정</p>
+            <h1 id="Baekjoon-15596"><a href="#Baekjoon-15596" class="headerlink" title="Baekjoon-15596"></a>Baekjoon-15596</h1><h3 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h3><blockquote>
+<p>정수 n개가 주어졌을 때, n개의 합을 구하는 함수를 작성하시오.</p>
+<p>작성해야 하는 함수는 다음과 같다.</p>
+<ul>
+<li>Java: <code>long sum(int[] a);</code><ul>
+<li><code>a</code>: 합을 구해야 하는 정수 <code>n</code>개가 저장되어 있는 배열 (0 ≤ a[i] ≤ 1,000,000, 1 ≤ n ≤ 3,000,000)</li>
+<li>리턴값: <code>a</code>에 포함되어 있는 정수 <code>n</code>개의 합</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>### </p>
+<hr>
+<h3 id="제출-코드"><a href="#제출-코드" class="headerlink" title="제출 코드"></a>제출 코드</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">long</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span>[] a)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h3><p>해당 문제는 주어진 조건에 맞게 제출코드에 코드를 작성하기만 하면 된다.</p>
+<h3 id="소스코드"><a href="#소스코드" class="headerlink" title="소스코드"></a>소스코드</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">long</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span>[] a)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">long</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a.length; i++) &#123;</span><br><span class="line">        ans += a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
         </div>
 
@@ -169,7 +249,7 @@ s.setAttribute('data-timestamp', +new Date());
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="http://jinsu4755.github.io/2019/09/30/git강의-1일차-용어-시작하기/">http://jinsu4755.github.io/2019/09/30/git강의-1일차-용어-시작하기/</a></span>
+                        <span><a href="http://jinsu4755.github.io/2019/10/01/Baekjoon-15596-정수N개합-JAVA/">http://jinsu4755.github.io/2019/10/01/Baekjoon-15596-정수N개합-JAVA/</a></span>
                     </p>
                 
                 
@@ -188,7 +268,7 @@ s.setAttribute('data-timestamp', +new Date());
                 <span class="tag">
                     
                     
-                        <a href="/tags/git-강의/"># git_강의</a>
+                        <a href="/tags/Baekjoon알고리즘JAVA/"># Baekjoon알고리즘JAVA</a>
                     
                         
                 </span>
@@ -201,10 +281,10 @@ s.setAttribute('data-timestamp', +new Date());
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2019/10/01/Baekjoon-15596-정수N개합-JAVA/">[Baekjoon]15596:정수N개 합[JAVA]</a>
+                <a class="prev" rel="prev" href="/2019/10/01/Baekjoon-4673-셀프넘버-JAVA/">[Baekjoon]4673:셀프넘버[JAVA]</a>
             
             
-            <a class="next" rel="next" href="/2019/09/30/Python강의-2일차-문자열인덱싱-슬라이싱/">[Python강의]2일차/문자열인덱싱,슬라이싱</a>
+            <a class="next" rel="next" href="/2019/09/30/git강의-1일차-용어-시작하기/">[git강의]1일차:용어/시작하기</a>
             
         </section>
 
