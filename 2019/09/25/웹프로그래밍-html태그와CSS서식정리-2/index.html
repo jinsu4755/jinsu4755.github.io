@@ -242,6 +242,14 @@
 <h3 id="css실렉터의-공백-문자"><a href="#css실렉터의-공백-문자" class="headerlink" title="css실렉터의 공백 문자"></a>css실렉터의 공백 문자</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">    tbody tr&#123;color:#ffffff&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>tbody아래 모든 tr태그에 서식을 적용하는 의미</p>
+<h3 id="태그의-class-애트리뷰트와-css실렉터"><a href="#태그의-class-애트리뷰트와-css실렉터" class="headerlink" title="태그의 class 애트리뷰트와 css실렉터"></a>태그의 class 애트리뷰트와 css실렉터</h3><p>몇몇 태그들에만 서식을 부여할때 class 애트리뷰트를 사용.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">span.green&#123;font-size:9pt;color:green;&#125;</span><br><span class="line">의 서식은</span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"green"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">에서 적용된다.</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>div, a {}실렉터는 div와 a모두에 적용</p>
+<p>div a{} 실렉터는 div아레 a에 적용</p>
+<p>div.a{} 실렉터는 div에서 a class를 사용하는 태그에 적용</p>
+</blockquote>
 <hr>
 <h4 id="다양한-CSS-서식"><a href="#다양한-CSS-서식" class="headerlink" title="다양한 CSS 서식"></a>다양한 CSS 서식</h4><p><strong>border</strong> </p>
 <p>태그의 태두리를 설정하는 서식</p>
