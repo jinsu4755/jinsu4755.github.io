@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+
+<title>[웹프로그래밍][중간고사대비]3.css정리 | 개발로 쓰다</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">P_jinsu의 개발로 쓰다</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">P_jinsu의 개발로 쓰다</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">[웹프로그래밍][중간고사대비]3.css정리</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">P_Jinsu</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">October 10, 2019&nbsp;&nbsp;20:58:57</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/웹-프로그래밍/">웹_프로그래밍</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="Css정리"><a href="#Css정리" class="headerlink" title="Css정리"></a>Css정리</h1><h2 id="css-기본-내용"><a href="#css-기본-내용" class="headerlink" title="css 기본 내용"></a>css 기본 내용</h2><h3 id="style-에트리뷰트"><a href="#style-에트리뷰트" class="headerlink" title="style 에트리뷰트"></a>style 에트리뷰트</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">"border: 1px solid gray;"</span>&gt;</span>hi<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>태그에 style 에트리뷰트를 통해 서식을 지정할 때 사용한다.</p>
+<p>글자체, 글자 색, 글자 크기, 배경 색, 여백 등 다양하게 지정이 가능하다.</p>
+<blockquote>
+<p>2.에서 정리에서 보았듯 style태그로도 서식을 지정할 수 있다.</p>
+</blockquote>
+<h3 id="Css-selector"><a href="#Css-selector" class="headerlink" title="Css selector"></a>Css selector</h3><p>style 태그 내용에서 서식을 적용할 태그를 지정하는 부분을 css실렉터라고 한다.</p>
+<p>위에 예제에서 css실렉터는 td태그이다.</p>
+<h3 id="인라인-서식"><a href="#인라인-서식" class="headerlink" title="인라인 서식"></a>인라인 서식</h3><p>태그에 직접 style 애트리뷰트 값으로 서식을  지정하는 것을 말한다.</p>
+<p><strong>인라인 서식의 경우 style 태그보다 우선순위가 높다.</strong></p>
+<h3 id="css-우선순위"><a href="#css-우선순위" class="headerlink" title="css 우선순위"></a>css 우선순위</h3><ol>
+<li>인라인 서식</li>
+<li>css 실렉터 자식태그중 가장 낮은 것</li>
+<li>부모 태그</li>
+</ol>
+<h3 id="nth-child-n-selector"><a href="#nth-child-n-selector" class="headerlink" title=":nth-child(n) selector"></a>:nth-child(n) selector</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span> td:nth-child(2)&#123;text-align:right;&#125; <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>css 실렉터 td 뒤에 붙어서 사용하면서 n번째 td태그에 모두 해당된다.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">tr</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>....<span class="tag">&lt;/<span class="name">td</span>&gt;</span> td:nth-child(1) </span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>....<span class="tag">&lt;/<span class="name">td</span>&gt;</span> td:nth-child(2) <span class="comment">&lt;!-- 적용! --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>....<span class="tag">&lt;/<span class="name">td</span>&gt;</span> td:nth-child(3) </span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">tr</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>....<span class="tag">&lt;/<span class="name">td</span>&gt;</span> td:nth-child(1) </span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>....<span class="tag">&lt;/<span class="name">td</span>&gt;</span> td:nth-child(2) <span class="comment">&lt;!-- 적용! --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>....<span class="tag">&lt;/<span class="name">td</span>&gt;</span> td:nth-child(3) </span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="hover-selector"><a href="#hover-selector" class="headerlink" title=":hover selector"></a>:hover selector</h3><p>마우스 포인터 바로 아래 태그가 있을때 서식을 지정한다.</p>
+<h3 id="css실렉터의-공백"><a href="#css실렉터의-공백" class="headerlink" title="css실렉터의 공백"></a>css실렉터의 공백</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">    tbody tr&#123;color:#ffffff&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>위와 같은 경우  tbody아래에 모든 tr태그에 서식을 적용하라는 의미이다.</p>
+<h3 id="태그에-class-애트리뷰트와-css-실렉터"><a href="#태그에-class-애트리뷰트와-css-실렉터" class="headerlink" title="태그에 class  애트리뷰트와 css 실렉터"></a>태그에 class  애트리뷰트와 css 실렉터</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span>span.green&#123;font-size:9pt;color:green;&#125;<span class="tag">&lt;/<span class="name">style</span>&gt;</span> </span><br><span class="line">의 서식은</span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"green"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">에서 적용된다.</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>div, a {}실렉터는 div와 a모두에 적용</p>
+</blockquote>
+<blockquote>
+<p>div a{} 실렉터는 div아레 a에 적용</p>
+</blockquote>
+<blockquote>
+<p>div.a{} 실렉터는 div에서 a class를 사용하는 태그에 적용</p>
+</blockquote>
+<h3 id="서식의-상속"><a href="#서식의-상속" class="headerlink" title="서식의 상속"></a>서식의 상속</h3><p>모든 자식 태그에 동일한 서식은 부모태그에 정의하면 자식태그에 상속된다.</p>
+<p>-&gt; 모든 자식 태그에 동일하게 서식을 지정하고 싶은경우 부모 태그에 정의하면 자식태그에도 상속이 되어 모든 자식 태그에 서식을 지정할 수 있다.</p>
+<h2 id="다양한-css-서식"><a href="#다양한-css-서식" class="headerlink" title="다양한 css 서식"></a>다양한 css 서식</h2><h3 id="border"><a href="#border" class="headerlink" title="border"></a>border</h3><p>태그의 태두리를 설정하는 서식</p>
+<h3 id="width"><a href="#width" class="headerlink" title="width"></a>width</h3><p>태그의 가로폭</p>
+<h3 id="height"><a href="#height" class="headerlink" title="height"></a>height</h3><p>태그의 세로폭</p>
+<h3 id="text-align"><a href="#text-align" class="headerlink" title="text-align"></a>text-align</h3><p>text 정렬 left, right, center로 default 값은 left이다.</p>
+<p>태그 사이 내용이 서식 방향 정렬</p>
+<h3 id="vertical-align"><a href="#vertical-align" class="headerlink" title="vertical-align"></a>vertical-align</h3><p>태그 내부 문자열을 수직 방향으로 정렬한다.</p>
+<h3 id="background-color"><a href="#background-color" class="headerlink" title="background-color"></a>background-color</h3><p>배경색 서식</p>
+<h3 id="color"><a href="#color" class="headerlink" title="color"></a>color</h3><p>태그 내용에 해당하는 글자 색 정의</p>
+<h3 id="font-weight"><a href="#font-weight" class="headerlink" title="font-weight"></a>font-weight</h3><p>글자 굵기 조정 bold와 normal중 하나를 사용하고 default값은 normal</p>
+<h3 id="line-height"><a href="#line-height" class="headerlink" title="line-height"></a>line-height</h3><p>글자 줄 간격 지정</p>
+<h3 id="border-collapse"><a href="#border-collapse" class="headerlink" title="border-collapse"></a>border-collapse</h3><p>table 태그의 여백을 제거하는 서식</p>
+<p>border-collapse가 collapse이면 태그 여백 제거</p>
+<h3 id="padding"><a href="#padding" class="headerlink" title="padding"></a>padding</h3><p>태그 태두리와 내부 내용사이의 여백을 설정</p>
+<h3 id="margin"><a href="#margin" class="headerlink" title="margin"></a>margin</h3><p>태그 태두리 바깥쪽에서 여백을 지정</p>
+<p>margin의 left와 right가 auto이면 웹브라우저 창 가운데에 표시된다.</p>
+<h3 id="float"><a href="#float" class="headerlink" title="float"></a>float</h3><p>해당 서식을 부여받은 태그는 다른 태그들과 달리 같은 줄에 표시 되는 것이 아니라 left, right등 속성값 방향으로 치우쳐 따로 그려진다.</p>
+<h3 id="left-top"><a href="#left-top" class="headerlink" title="left, top"></a>left, top</h3><p>left와 top 서식에 좌표를 지정하여 x,y해당 좌표에 띄울 수 있다.</p>
+<h3 id="position"><a href="#position" class="headerlink" title="position"></a>position</h3><p>absolute값이 지정되면 해당 태그는 다른 태그들 위에 떠있는 듯이 그려진다.</p>
+
+        </div>
+
+        <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://jinsu4755.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                            
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>P_Jinsu</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="http://jinsu4755.github.io/2019/10/10/웹프로그래밍-중간고사대비-3-css정리/">http://jinsu4755.github.io/2019/10/10/웹프로그래밍-중간고사대비-3-css정리/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/웹프로그래밍/"># 웹프로그래밍</a>
+                    
+                        <a href="/tags/중간고사/"># 중간고사</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2019/10/10/웹프로그래밍-중간고사대비-2-html정리/">[웹프로그래밍][중간고사대비]2.html정리</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
